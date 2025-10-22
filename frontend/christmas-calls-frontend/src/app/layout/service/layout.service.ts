@@ -14,7 +14,7 @@ export class LayoutService {
   _config: layoutConfig = {
     primary: "vintage-red",
     surface: "slate",
-    darkTheme: false,
+    darkTheme: true,
     heroContainerType: "wide",
   };
 
@@ -31,9 +31,21 @@ export class LayoutService {
   isMobile = computed(() => !this.isDesktop());
 
   constructor() {
+    // Initialize theme on startup
+    this.initializeTheme();
+    
     effect(() => {
       const updateScreenSize = () => this.screenWidth.set(window.innerWidth);
       window.addEventListener("resize", updateScreenSize);
     });
+  }
+
+  private initializeTheme() {
+    // Apply the initial theme based on the config
+    if (this._config.darkTheme) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }
 }
