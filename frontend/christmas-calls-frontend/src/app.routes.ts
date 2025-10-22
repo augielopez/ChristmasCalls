@@ -12,6 +12,11 @@ export const appRoutes: Routes = [
           import("./app/pages/travel/index").then((c) => c.Travel),
       },
       {
+        path: "christmas",
+        loadComponent: () =>
+          import("./app/pages/christmas/index").then((c) => c.Christmas),
+      },
+      {
         path: "saas",
         loadComponent: () =>
           import("./app/pages/saas/index").then((c) => c.Saas),

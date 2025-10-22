@@ -12,7 +12,7 @@ export interface layoutConfig {
 })
 export class LayoutService {
   _config: layoutConfig = {
-    primary: "blue",
+    primary: "vintage-red",
     surface: "slate",
     darkTheme: false,
     heroContainerType: "wide",
